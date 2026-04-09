@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "mf-gestor-comercial-tienda-web": {
+    "mf-tienda-comercial": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -83,10 +83,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "mf-gestor-comercial-tienda-web:build:production"
+              "buildTarget": "mf-tienda-comercial:build:production"
             },
             "development": {
-              "buildTarget": "mf-gestor-comercial-tienda-web:build:development"
+              "buildTarget": "mf-tienda-comercial:build:development"
             }
           },
           "defaultConfiguration": "development"

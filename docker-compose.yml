@@ -1,9 +1,9 @@
 services:
-  mf-gestor-comercial-tienda-web:
+  mf-tienda-comercial:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: mf-gestor-comercial-tienda-web
+    container_name: mf-tienda-comercial
     ports:
       - "8083:80"
     networks:
