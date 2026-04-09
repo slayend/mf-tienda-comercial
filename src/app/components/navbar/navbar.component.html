@@ -1,0 +1,77 @@
+<nav class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a routerLink="/" class="flex items-center gap-2 text-xl font-bold text-blue-600 hover:text-blue-700">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        <span>Tienda Web</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-6">
+        <a routerLink="/" routerLinkActive="text-blue-600 font-semibold" [routerLinkActiveOptions]="{exact: true}"
+          class="text-gray-600 hover:text-blue-600 transition-colors">
+          Inicio
+        </a>
+        <a routerLink="/productos" routerLinkActive="text-blue-600 font-semibold"
+          class="text-gray-600 hover:text-blue-600 transition-colors">
+          Productos
+        </a>
+        <a routerLink="/seguimiento" routerLinkActive="text-blue-600 font-semibold"
+          class="text-gray-600 hover:text-blue-600 transition-colors">
+          Seguimiento
+        </a>
+      </div>
+
+      <!-- Cart + Mobile Menu -->
+      <div class="flex items-center gap-4">
+        <!-- Cart Button -->
+        <a routerLink="/carrito" class="relative p-2 text-gray-600 hover:text-blue-600 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+          </svg>
+          @if (cartService.totalItems() > 0) {
+            <span class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+              {{ cartService.totalItems() }}
+            </span>
+          }
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button (click)="toggleMenu()" class="md:hidden p-2 text-gray-600 hover:text-blue-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            @if (!menuOpen) {
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            } @else {
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            }
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Nav -->
+  @if (menuOpen) {
+    <div class="md:hidden border-t bg-white">
+      <div class="px-4 py-3 space-y-2">
+        <a routerLink="/" (click)="menuOpen = false"
+          class="block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 hover:text-blue-600">
+          Inicio
+        </a>
+        <a routerLink="/productos" (click)="menuOpen = false"
+          class="block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 hover:text-blue-600">
+          Productos
+        </a>
+        <a routerLink="/seguimiento" (click)="menuOpen = false"
+          class="block px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 hover:text-blue-600">
+          Seguimiento
+        </a>
+      </div>
+    </div>
+  }
+</nav>
