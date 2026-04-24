@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: mf-tienda-comercial
     ports:
-      - "8083:80"
+      - "4401:80"
     networks:
       - gestor-network
     restart: unless-stopped
